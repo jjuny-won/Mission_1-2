@@ -1,0 +1,39 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: mission
+  config:
+    import: optional:file:.env[.properties]
+  profiles:
+    active: dev #application-dev.yml 가 자동으로 불러와짐
+  output:
+    ansi:
+      enabled: always
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        highlight_sql: true
+        use_sql_comments: true
+        default_batch_fetch_size: 100
+logging:
+  level:
+    com.mission: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+    org.hibernate.orm.jdbc.extract: TRACE
+    org.springframework.transaction.interceptor: TRACE
+
+custom:
+  global:
+    internalBackUrl: http://localhost:${server.port:8080}
+  jwt:
+    secret: ${JWT_SECRET:}
+    expiration-ms: 3600000        # 1시간
