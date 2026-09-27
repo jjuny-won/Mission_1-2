@@ -2,7 +2,7 @@ package com.mission.domain.post.service;
 
 import com.mission.domain.member.entity.Member;
 import com.mission.domain.member.repository.MemberRepository;
-import com.mission.domain.post.comment.repository.CommentRepository;
+import com.mission.domain.comment.repository.CommentRepository;
 import com.mission.domain.post.dto.PostCreateRequest;
 import com.mission.domain.post.dto.PostListItem;
 import com.mission.domain.post.dto.PostResponse;

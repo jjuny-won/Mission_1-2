@@ -1,4 +1,4 @@
-package com.mission.domain.post.comment.entity;
+package com.mission.domain.comment.entity;
 
 import com.mission.domain.member.entity.Member;
 import com.mission.domain.post.entity.Post;
@@ -18,12 +18,14 @@ public class Comment extends BaseEntity {
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "post_id")
+    private Post post;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "author_id")
     private Member author;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "post_id")
-    private Post post;
+
 
     public Comment(String content, Member author, Post post) {
         this.content = content;
