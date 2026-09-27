@@ -35,7 +35,7 @@ public class JwtProvider {
         return Jwts.builder()
                 .subject(String.valueOf(memberId))
                 .issuedAt(now)
-                .expiration(new Date(now.getTime()))
+                .expiration(new Date(now.getTime() + expirationMs))
                 .signWith(key)
                 .compact();
     }
