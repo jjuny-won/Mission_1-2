@@ -3,7 +3,6 @@ package com.mission.global.jpa;
 import jakarta.persistence.*;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -20,7 +19,7 @@ public abstract class BaseEntity  {
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    public abstract LocalDateTime createdDate();
+    public LocalDateTime createdAt;
 
     @LastModifiedDate
     @Column(nullable = false)
